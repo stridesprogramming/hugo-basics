@@ -22,15 +22,19 @@ There is nothing there but an empty HTML page.
 
 # Seeing Home
 
-To make a home page interesting, you have to include your own content. Make a home page layout the fancy way with `echo "<div>Best</div>" > layouts/home.html`. Or be relaxed and make a text file named `home.html` in the `layouts` directory (in the `best-website` directory) and write HTML in there.
+To make a home page interesting, you have to include your own layouts. Make a home page layout the fancy way with `echo "<div>Best</div>" > layouts/home.html`. Or be relaxed and make a text file named `home.html` in the `layouts` directory (in the `best-website` directory) and write HTML in there.
 
 Know More!
 You could name this file many things. Anything in the [lookup order](https://gohugo.io/templates/lookup-order/#examples-layout-lookup-for-home-page) for a `home` page works.
 
 # Seeing Content
 
-If you stopped and restarted your server with `Ctrl-C`,`hugo server` you could see that we had removed one of the errors. Our home page has a template. 
+If you stopped and restarted your server with `Ctrl-C`,`hugo server` you could see that we had removed one of the errors. Our home page has a template, and you can add almost everything you want here. Hugo has good suggestions about how to organize your information.
 
+In your `layouts/home.html` you'll use Go code to read variables and content from other files. Replace "Best" with `{{ .Content }}`. The `{{}}` curly braces indicate Go code is happening, the `.` is all the information currently available, and the `Content` is a specific variable carrying data. If you look at localhost:1313, you'll see no content. To add content for the home page make the `content/_index.md` file and add some markdown, like `# *Best* Website Ever*` 
+
+Know More!
+Hugo encourages you to put the HTML the browser uses in `layouts` and populate it with content the user sees from `content`.
 
 # Seeing Page
 
